@@ -2,32 +2,32 @@
 #include "filename.h"
 
 int main() {
-    char infix[256], postfix[512];
+    char infix[256], postfix[512];//å®šä¹‰è¡¨è¾¾å¼é•¿åº¦
 
     while (1) {
-        printf("\nÊäÈë±í´ïÊ½ (ÊäÈëstopÒÔÍË³ö¼ÆËãÆ÷): ");
+        printf("\nè¾“å…¥è¡¨è¾¾å¼ (è¾“å…¥stopä»¥é€€å‡ºè®¡ç®—å™¨): ");
         fgets(infix, sizeof(infix), stdin);
-        infix[strcspn(infix, "\n")] = '\0';  // ÎüÊÕ»»ĞĞ·û
+        infix[strcspn(infix, "\n")] = '\0';  // å¸æ”¶æ¢è¡Œç¬¦
 
-        // ¼ì²éÍË³öÌõ¼ş
+        // æ£€æŸ¥é€€å‡ºæ¡ä»¶
         if (strcmp(infix, "stop") == 0) {
-            printf("ÍË³ö¼ÆËãÆ÷...\n");
+            printf("é€€å‡ºè®¡ç®—å™¨...\n");
             break;
         }
 
-        // Ìø¹ı¿ÕÊäÈë
+        // è·³è¿‡ç©ºè¾“å…¥
         if (strlen(infix) == 0) {
-            printf("ÊäÈëÎª¿Õ\n");
+            printf("è¾“å…¥ä¸ºç©º\n");
             continue;
         }
 
-        // ±í´ïÊ½×ª»»ºÍ¼ÆËã
+        // è¡¨è¾¾å¼è½¬æ¢å’Œè®¡ç®—
         infixToPostfix(infix, postfix);
-        //printf("ºó×º±í´ïÊ½: %s", postfix);¿ÉÑ¡ÔñÊÇ·ñÕ¹Ê¾ºó×º±í´ïÊ½
+        //printf("åç¼€è¡¨è¾¾å¼: %s", postfix);å¯é€‰æ‹©æ˜¯å¦å±•ç¤ºåç¼€è¡¨è¾¾å¼
 
         int result = evaluatePostfix(postfix);
         if (result != -1) {
-            printf("½á¹û: %d\n", result);
+            printf("ç»“æœ: %d\n", result);
         }
     }
 
